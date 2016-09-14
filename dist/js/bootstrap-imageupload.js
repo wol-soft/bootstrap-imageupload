@@ -1,5 +1,5 @@
 /**
- * bootstrap-imageupload v1.1.0
+ * bootstrap-imageupload v1.1.1
  * https://github.com/egonolieux/bootstrap-imageupload
  * Copyright 2016 Egon Olieux
  * Released under the MIT license
@@ -16,9 +16,9 @@ if (typeof jQuery === 'undefined') {
 
     var methods = {
         init: init,
-        reset: reset,
+        disable: disable,
         enable: enable,
-        disable: disable
+        reset: reset
     };
 
     // Plugin Definition
@@ -108,9 +108,9 @@ if (typeof jQuery === 'undefined') {
         });
     }
 
-    function reset() {
+    function disable() {
         var $imageupload = this;
-        init.call($imageupload, options);
+        $imageupload.addClass('imageupload-disabled');
     }
 
     function enable() {
@@ -118,9 +118,9 @@ if (typeof jQuery === 'undefined') {
         $imageupload.removeClass('imageupload-disabled');
     }
 
-    function disable() {
+    function reset() {
         var $imageupload = this;
-        $imageupload.addClass('imageupload-disabled');
+        init.call($imageupload, options);
     }
 
     // Private Methods

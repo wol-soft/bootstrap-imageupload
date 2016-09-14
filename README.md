@@ -1,6 +1,6 @@
-# Bootstrap Image Upload
+# bootstrap-imageupload
 
-*Bootstrap Image Upload* is a [Bootstrap](https://getbootstrap.com/)/[jQuery](https://jquery.com/) plugin which shows a thumbnail of an image to be uploaded (by file and URL).
+A [Bootstrap](https://getbootstrap.com/)/[jQuery](https://jquery.com/) plugin to preview image uploads.
 
 ## Table of contents
 
@@ -21,6 +21,10 @@ Following installation options are available:
 - Install with [npm](https://www.npmjs.com): `npm install bootstrap-imageupload --save`.
 
 ## Usage
+
+```JavaScript
+$('.imageupload').imageupload(options);
+```
 
 ### HTML
 
@@ -59,14 +63,6 @@ Copy this snippet into your HTML.
 
 ### JavaScript
 
-#### Initialization
-
-```JavaScript
-$('.imageupload').imageupload(options);
-```
-
-When no options are passed, default options are used.
-
 #### Options
 
 | Name           | Type   | Default                       |
@@ -80,7 +76,8 @@ When no options are passed, default options are used.
 
 ##### .imageupload(options)
 
-Initializes *bootstrap-imageupload* with options.
+Initializes *bootstrap-imageupload*.
+If no options are given, defaults are used.
 
 ```JavaScript
 $('imageupload').imageupload({
@@ -89,33 +86,29 @@ $('imageupload').imageupload({
 });
 ```
 
-##### .imageupload('init', options)
+##### .imageupload('disable')
 
-Long notation for the above.
-
-##### .imageupload('reset')
-
-Removes all user input and shows the file tab.
-Options from initialization are preserved.
+Disables user input.
 
 ```JavaScript
-$('imageupload').imageupload('reset');
+$('imageupload').imageupload('disable');
 ```
 
 ##### .imageupload('enable')
 
-Enable *bootstrap-imageupload* after being disabled.
+Enables user input (after being disabled).
 
 ```JavaScript
 $('imageupload').imageupload('enable');
 ```
 
-##### .imageupload('disable')
+##### .imageupload('reset')
 
-Disable all user input.
+Resets *bootstrap-imageupload* to its initial state.
+Options from initialization are preserved.
 
 ```JavaScript
-$('imageupload').imageupload('disable');
+$('imageupload').imageupload('reset');
 ```
 
 ## Limitations
