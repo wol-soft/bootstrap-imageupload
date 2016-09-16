@@ -80,8 +80,8 @@ Initializes *bootstrap-imageupload*.
 If no options are given, defaults are used.
 
 ```JavaScript
-$('imageupload').imageupload({
-    allowedFormats: [ "jpg" ],
+$('.imageupload').imageupload({
+    allowedFormats: [ 'jpg' ],
     maxFileSizeKb: 512
 });
 ```
@@ -91,7 +91,7 @@ $('imageupload').imageupload({
 Disables user input.
 
 ```JavaScript
-$('imageupload').imageupload('disable');
+$('.imageupload').imageupload('disable');
 ```
 
 ##### .imageupload('enable')
@@ -99,7 +99,7 @@ $('imageupload').imageupload('disable');
 Enables user input (after being disabled).
 
 ```JavaScript
-$('imageupload').imageupload('enable');
+$('.imageupload').imageupload('enable');
 ```
 
 ##### .imageupload('reset')
@@ -108,7 +108,7 @@ Resets *bootstrap-imageupload* to its initial state.
 Options from initialization are preserved.
 
 ```JavaScript
-$('imageupload').imageupload('reset');
+$('.imageupload').imageupload('reset');
 ```
 
 ## Limitations

@@ -1,3 +1,8 @@
+'use strict';
+
+// Import Modules
+// ==================================================
+
 var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync').create();
 var cleanCss = require('gulp-clean-css');
@@ -53,32 +58,32 @@ gulp.task('browser-sync:reload', function() {
 
 gulp.task('build:css', function() {
     return gulp.src('src/less/main.less')
-        .pipe(plumber({ errorHandler }))
+        .pipe(plumber({ errorHandler: errorHandler }))
         .pipe(less())
         .pipe(autoprefixer('last 3 versions'))
-        .pipe(header(headerText, { pkg }))
+        .pipe(header(headerText, { pkg: pkg }))
         .pipe(rename({
             basename: 'bootstrap-imageupload',
             extname: '.css',
         }))
         .pipe(gulp.dest('dist/css'))
         .pipe(cleanCss())
-        .pipe(header(headerText, { pkg }))
+        .pipe(header(headerText, { pkg: pkg }))
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('dist/css'));
 });
 
 gulp.task('build:js', ['jshint'], function() {
     return gulp.src('src/js/main.js')
-        .pipe(plumber({ errorHandler }))
-        .pipe(header(headerText, { pkg }))
+        .pipe(plumber({ errorHandler: errorHandler }))
+        .pipe(header(headerText, { pkg: pkg }))
         .pipe(rename({
             basename: 'bootstrap-imageupload',
             extname: '.js',
         }))
         .pipe(gulp.dest('dist/js'))
         .pipe(uglify())
-        .pipe(header(headerText, { pkg }))
+        .pipe(header(headerText, { pkg: pkg }))
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('dist/js'));
 });
