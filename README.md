@@ -23,7 +23,7 @@ Following installation options are available:
 ## Usage
 
 ```JavaScript
-$('.imageupload').imageupload(options);
+$('#my-imageupload').imageupload(options);
 ```
 
 ### HTML
@@ -80,7 +80,7 @@ Initializes *bootstrap-imageupload*.
 If no options are given, defaults are used.
 
 ```JavaScript
-$('.imageupload').imageupload({
+$('#my-imageupload').imageupload({
     allowedFormats: [ 'jpg' ],
     maxFileSizeKb: 512
 });
@@ -91,7 +91,7 @@ $('.imageupload').imageupload({
 Disables user input.
 
 ```JavaScript
-$('.imageupload').imageupload('disable');
+$('#my-imageupload').imageupload('disable');
 ```
 
 ##### .imageupload('enable')
@@ -99,7 +99,7 @@ $('.imageupload').imageupload('disable');
 Enables user input (after being disabled).
 
 ```JavaScript
-$('.imageupload').imageupload('enable');
+$('#my-imageupload').imageupload('enable');
 ```
 
 ##### .imageupload('reset')
@@ -108,7 +108,7 @@ Resets *bootstrap-imageupload* to its initial state.
 Options from initialization are preserved.
 
 ```JavaScript
-$('.imageupload').imageupload('reset');
+$('#my-imageupload').imageupload('reset');
 ```
 
 ## Limitations
