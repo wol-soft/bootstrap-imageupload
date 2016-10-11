@@ -13,6 +13,7 @@
   pointer-events: none;
 }
 .imageupload .panel-title {
+  margin-right: 15px;
   padding-top: 8px;
 }
 .imageupload .alert {
