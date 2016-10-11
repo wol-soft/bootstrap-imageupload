@@ -21,8 +21,9 @@ if (typeof jQuery === 'undefined') {
         reset: reset
     };
 
+    // -----------------------------------------------------------------------------
     // Plugin Definition
-    // ==================================================
+    // -----------------------------------------------------------------------------
 
     $.fn.imageupload = function(methodOrOptions) {
         var givenArguments = arguments;
@@ -47,8 +48,9 @@ if (typeof jQuery === 'undefined') {
         maxFileSizeKb: 2048
     };
 
+    // -----------------------------------------------------------------------------
     // Public Methods
-    // ==================================================
+    // -----------------------------------------------------------------------------
 
     function init(givenOptions) {
         options = $.extend({}, $.fn.imageupload.defaultOptions, givenOptions);
@@ -123,8 +125,9 @@ if (typeof jQuery === 'undefined') {
         init.call($imageupload, options);
     }
 
+    // -----------------------------------------------------------------------------
     // Private Methods
-    // ==================================================
+    // -----------------------------------------------------------------------------
 
     function getAlertHtml(message) {
         var html = [];
@@ -239,6 +242,7 @@ if (typeof jQuery === 'undefined') {
         
         $fileTab.find('.alert').remove();
         $fileTab.find('img').remove();
+        $browseFileButton.find('span').text('Browse');
         $removeFileButton.hide();
 
         // Check if file was uploaded.
