@@ -38,7 +38,11 @@ if (typeof jQuery === 'undefined') {
         allowedFormats: [ 'jpg', 'jpeg', 'png', 'gif' ],
         maxWidth: 250,
         maxHeight: 250,
-        maxFileSizeKb: 2048
+        maxFileSizeKb: 2048,
+        labels: {
+            browse: 'Browse',
+            change: 'Change'
+        }
     };
 
     // -----------------------------------------------------------------------------
@@ -223,7 +227,7 @@ if (typeof jQuery === 'undefined') {
     function resetFileTab($fileTab) {
         $fileTab.find('.alert').remove();
         $fileTab.find('img').remove();
-        $fileTab.find('.btn span').text('Browse');
+        $fileTab.find('.btn span').text(options.labels.browse);
         $fileTab.find('.btn:eq(1)').hide();
         $fileTab.find('input').val('');
     }
@@ -235,7 +239,7 @@ if (typeof jQuery === 'undefined') {
         
         $fileTab.find('.alert').remove();
         $fileTab.find('img').remove();
-        $browseFileButton.find('span').text('Browse');
+        $browseFileButton.find('span').text(options.labels.browse);
         $removeFileButton.hide();
 
         // Check if file was uploaded.
@@ -254,7 +258,7 @@ if (typeof jQuery === 'undefined') {
                 fileReader.onload = function(e) {
                     // Show thumbnail and remove button.
                     $fileTab.prepend(getImageThumbnailHtml(e.target.result));
-                    $browseFileButton.find('span').text('Change');
+                    $browseFileButton.find('span').text(options.labels.change);
                     $removeFileButton.css('display', 'inline-block');
                 };
 
@@ -267,7 +271,7 @@ if (typeof jQuery === 'undefined') {
             }
             else {
                 $fileTab.prepend(getAlertHtml(message));
-                $browseFileButton.find('span').text('Browse');
+                $browseFileButton.find('span').text(options.labels.browse);
                 $fileInput.val('');
             }
 

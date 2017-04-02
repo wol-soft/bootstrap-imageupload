@@ -71,6 +71,10 @@ Copy this snippet into your HTML.
 | maxWidth       | Number | 250                           |
 | maxHeight      | Number | 250                           |
 | maxFileSizeKb  | Number | 2048                          |
+| labels         | Object | {                             |
+|                |        |   browse: 'Browse',           |
+|                |        |   change: 'Change'            |
+|                |        | }                             |
 
 #### Methods
 
