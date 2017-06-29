@@ -1,5 +1,5 @@
 /**
- * bootstrap-imageupload v1.2.0
+ * bootstrap-imageupload v1.3.0
  * https://github.com/egonolieux/bootstrap-imageupload
  * Copyright 2016 Egon Olieux
  * Released under the MIT license
@@ -46,6 +46,7 @@ if (typeof jQuery === 'undefined') {
         maxWidth: 250,
         maxHeight: 250,
         maxFileSizeKb: 2048,
+        imageURL: '',
         labels: {
             browse: 'Browse',
             change: 'Change'
@@ -91,11 +92,13 @@ if (typeof jQuery === 'undefined') {
         $browseFileButton.on('change', function() {
             $(this).blur();
             submitImageFile($fileTab);
+            $imageupload.find('input[type="text"]').val('on');
         });
 
         $removeFileButton.on('click', function() {
             $(this).blur();
             resetFileTab($fileTab);
+            $imageupload.find('input[type="text"]').val('on');
         });
 
         $urlTabButton.on('click', function() {
@@ -106,12 +109,17 @@ if (typeof jQuery === 'undefined') {
         $submitUrlButton.on('click', function() {
             $(this).blur();
             submitImageUrl($urlTab);
+            $imageupload.find('input[type="text"]').val('on');
         });
 
         $removeUrlButton.on('click', function() {
             $(this).blur();
             resetUrlTab($urlTab);
         });
+
+        if (options.imageURL) {
+            initImage($imageupload, options.imageURL);
+        }
     }
 
     function disable() {
@@ -345,5 +353,38 @@ if (typeof jQuery === 'undefined') {
             $urlInput.prop('disabled', false);
             $submitUrlButton.prop('disabled', false);
         });
+    }
+
+    function initImage($imageupload, $imageUrl) {
+
+        var $fileTab          = $imageupload.find('.file-tab'),
+            $browseFileButton = $fileTab.find('.btn:eq(0)'),
+            $removeFileButton = $fileTab.find('.btn:eq(1)'),
+            $fileInput        = $browseFileButton.find('input');
+
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function(){
+            if (this.readyState == 4){
+                if (this.status == 200) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(event) {
+                        $fileTab.prepend(getImageThumbnailHtml(event.target.result));
+                    };
+                    reader.readAsDataURL(this.response);
+
+                    $browseFileButton.find('span').text(options.labels.change);
+                    $removeFileButton.css('display', 'inline-block');
+                } else {
+                    $fileTab.prepend(getAlertHtml('Image could not be loaded'));
+                    $browseFileButton.find('span').text(options.labels.browse);
+                    $fileInput.val('');
+                }
+            }
+        };
+
+        xhr.open('GET', $imageUrl);
+        xhr.responseType = 'blob';
+        xhr.send();
     }
 }(jQuery));

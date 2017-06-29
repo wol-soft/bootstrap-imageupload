@@ -71,6 +71,7 @@ Copy this snippet into your HTML.
 | maxWidth       | Number | 250                           |
 | maxHeight      | Number | 250                           |
 | maxFileSizeKb  | Number | 2048                          |
+| imageURL       | String | ''                            |
 | labels         | Object | {                             |
 |                |        |   browse: 'Browse',           |
 |                |        |   change: 'Change'            |
@@ -89,6 +90,8 @@ $('#my-imageupload').imageupload({
     maxFileSizeKb: 512
 });
 ```
+
+With the option **imageUrl** a default image can be selected. If the default image is changed, the input image-changed will be set to *on*.
 
 ##### .imageupload('disable')
 
