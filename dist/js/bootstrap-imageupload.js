@@ -143,10 +143,9 @@ if (typeof jQuery === 'undefined') {
 
     function getAlertHtml(message) {
         var html = [];
-        html.push('<div class="alert alert-danger alert-dismissible">');
-        html.push('<button type="button" class="close" data-dismiss="alert">');
-        html.push('<span>&times;</span>');
-        html.push('</button>' + message);
+        html.push('<div class="alert alert-danger alert-dismissible fade show" role="alert">');
+        html.push(message);
+        html.push('<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>');
         html.push('</div>');
         return html.join('');
     }
